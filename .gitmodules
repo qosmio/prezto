@@ -1,6 +1,7 @@
 [submodule "modules/autosuggestions/external"]
 	path = modules/autosuggestions/external
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+	ignore = dirty
 [submodule "modules/history-substring-search/external"]
 	path = modules/history-substring-search/external
 	url = https://github.com/zsh-users/zsh-history-substring-search.git
@@ -10,6 +11,7 @@
 [submodule "modules/completion/external"]
 	path = modules/completion/external
 	url = https://github.com/zsh-users/zsh-completions.git
+	ignore = dirty
 [submodule "modules/prompt/external/powerline"]
 	path = modules/prompt/external/powerline
 	url = https://github.com/davidjrice/prezto_powerline.git
@@ -25,6 +27,7 @@
 [submodule "modules/prompt/external/async"]
 	path = modules/prompt/external/async
 	url = https://github.com/mafredri/zsh-async.git
+	ignore = dirty
 [submodule "modules/prompt/external/powerlevel9k"]
 	path = modules/prompt/external/powerlevel9k
 	url = https://github.com/bhilburn/powerlevel9k.git
