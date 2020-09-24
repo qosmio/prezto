@@ -14,11 +14,11 @@
 	path = modules/completion/external
 	url = https://github.com/zsh-users/zsh-completions.git
 	ignore = dirty
-[submodule "modules/fasd/external"]
-	path = modules/fasd/external
-	url = https://github.com/clvv/fasd.git
-	ignore = dirty
 [submodule "modules/prompt/external/async"]
 	path = modules/prompt/external/async
 	url = https://github.com/mafredri/zsh-async.git
+	ignore = dirty
+[submodule "modules/z/external"]
+	path = modules/z/external
+	url = https://github.com/rupa/z.git
 	ignore = dirty
