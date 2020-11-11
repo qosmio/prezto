@@ -34,7 +34,8 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
-  'syntax-highlighting' \
+  'fast-syntax-highlighting' \
+  'fzf-tab' \
   'history-substring-search' \
   'directory' \
   'spectrum' \
