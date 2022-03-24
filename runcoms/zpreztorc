@@ -34,14 +34,12 @@ zstyle ':prezto:load' pmodule \
   'terminal' \
   'editor' \
   'history' \
-  'fzf-tab' \
-  'fast-syntax-highlighting' \
-  'history-substring-search' \
   'directory' \
   'spectrum' \
   'utility' \
   'completion' \
   'history-substring-search' \
+  'fast-syntax-highlighting' \
   'prompt'
 
 #
