@@ -87,7 +87,7 @@ function pmodload {
     fi
   done
 
-  pmodule_dirs=("$ZPREZTODIR/modules" "$HOME/.dotfiles/contrib" "$user_pmodule_dirs[@]")
+  pmodule_dirs=("$ZPREZTODIR/modules" "$ZDOTDIR/zsh/contrib" "$user_pmodule_dirs[@]")
 
   # $argv is overridden in the anonymous function.
   pmodules=("$argv[@]")
