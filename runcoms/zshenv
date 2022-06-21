@@ -1,3 +1,4 @@
+#!/bin/zsh
 export skip_global_compinit=1
 export HISTFILE="$HOME/.zsh_history"
 
@@ -22,8 +23,6 @@ rsz() {
 			#print "${COLUMNS}x${LINES} -> ${x}x${y}"
 			stty cols ${x} rows ${y}
 		fi
-	else
-		print 'Usage: rsz'  ## Easter egg here :)
 	fi
 }
 # Ensure that a non-login, non-interactive shell has a defined environment.
