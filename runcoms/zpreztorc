@@ -39,7 +39,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'history-substring-search' \
-  'fast-syntax-highlighting' \
+  'syntax-highlighting' \
   'prompt'
 
 #
