@@ -1,6 +1,5 @@
 #!/bin/zsh
 export skip_global_compinit=1
-export HISTFILE="$HOME/.zsh_history"
 
 SOURCE=${(%):-%N}
 while [ -h "$SOURCE" ]; do
