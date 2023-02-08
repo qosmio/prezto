@@ -18,7 +18,4 @@
 	path = modules/prompt/external/async
 	url = https://github.com/mafredri/zsh-async.git
 	ignore = dirty
-[submodule "modules/z/external"]
-	path = modules/z/external
-	url = https://github.com/rupa/z.git
-	ignore = dirty
+	branch = main
