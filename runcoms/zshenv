@@ -14,12 +14,10 @@ rsz() {
   if [[ -t 0 && $# -eq 0 ]];then
     local IFS='[;' geometry x y
     print -n '\e7\e[r\e[999;999H\e[6n\e8'
-    read -r -sd _ _ geometry
+    read -sd R escape geometry
     x=${geometry##*;} y=${geometry%%;*}
-    if [[ ${COLUMNS} -eq ${x} && ${LINES} -eq ${y} ]];then
-      print "${TERM} ${x}x${y}"
-    else
-      #print "${COLUMNS}x${LINES} -> ${x}x${y}"
+    if [[ ! ${COLUMNS} -eq ${x} && ! ${LINES} -eq ${y} ]];then
+      print "Resizing ${COLUMNS}x${LINES} -> ${x}x${y}"
       stty cols "${x}" rows "${y}"
     fi
   fi
