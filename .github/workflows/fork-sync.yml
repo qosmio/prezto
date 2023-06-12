@@ -1,0 +1,49 @@
+name: 'Usptream Sync'
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # every day at 12PM
+  workflow_dispatch:
+
+jobs:
+  sync_latest_from_upstream:
+    outputs:
+      parent_repo: ${{ steps.parent-repo.outputs.parent_repo }}
+    runs-on: ubuntu-latest
+    name: Sync latest commits from upstream repo
+    steps:
+    - name: Checkout target repo
+      uses: actions/checkout@v3
+      with:
+        # optional: set the branch to checkout,
+        # sync action checks out your 'target_sync_branch' anyway
+        # REQUIRED if your upstream repo is private (see wiki)
+        persist-credentials: true
+        
+    - name: Get Parent Repository
+      id: parent-repo
+      run: |
+        # Make API request to get the parent repository
+         echo "parent_repo=$(curl -sJL "https://api.github.com/repos/${{ github.repository }}" | \
+                        jq -r '.parent.full_name')" >> $GITHUB_OUTPUT
+
+    - name: Sync upstream changes
+      id: sync
+      uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+      with:
+        target_sync_branch: master
+        target_repo_token: ${{ secrets.GITHUB_TOKEN }}
+        upstream_sync_branch: master
+        upstream_sync_repo: ${{steps.parent-repo.outputs.parent_repo}}
+        #upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
+      
+    - name: New commits found
+      if: steps.sync.outputs.has_new_commits == 'true'
+      run: echo "New commits were found to sync."
+    
+    - name: No new commits
+      if: steps.sync.outputs.has_new_commits == 'false'
+      run: echo "There were no new commits."
+      
+    - name: Show value of 'has_new_commits'
+      run: echo ${{ steps.sync.outputs.has_new_commits }}
